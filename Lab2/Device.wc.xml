@@ -1,0 +1,99 @@
+<SerialDevice name="UR-6-85-5-A">
+ <Frame name="Base" />
+
+ <Joint name="Joint0" type="Revolute">
+  <RPY> 0 0 0 </RPY> <Pos> 0 0 0 </Pos>
+ </Joint>
+
+ <!-- PUT YOUR JOINTS HERE ONE AT A TIME -->
+
+ <Joint name="Joint1" type="Revolute">
+  <RPY> 90 0 90 </RPY> <Pos> 0 0 0.0892 </Pos>
+ </Joint>
+ 
+ <Joint name="Joint2" type="Revolute">
+ 	<RPY> 270 0 0 </RPY> <Pos> 0 0.425 0 </Pos>
+ </Joint>
+
+ <Joint name="Joint3" type="Revolute">
+  <RPY> 0 0 0 </RPY> <Pos> -0.39243 0 0 </Pos>
+ </Joint>
+ 
+ <Joint name="Joint4" type="Revolute">
+  <RPY> 270 0 90 </RPY> <Pos> 0 0 0.109 </Pos>
+ </Joint>
+ 
+ <Joint name="Joint5" type="Revolute">
+  <RPY> 0 0 270 </RPY> <Pos> 0 0 0.093 </Pos>
+ </Joint>
+ 
+ <Frame name="TCP" refframe="Base">
+  <RPY> 270 0 0 </RPY> <Pos> 0 0 0.082 </Pos>
+ </Frame>
+
+ <PosLimit refjoint="Joint0" min="-180" max="180" />
+ <PosLimit refjoint="Joint1" min="-270" max="90" />
+ <PosLimit refjoint="Joint2" min="-180" max="180" />
+ <PosLimit refjoint="Joint3" min="-270" max="90" /> 
+ <PosLimit refjoint="Joint4" min="-180" max="180" />
+ <PosLimit refjoint="Joint5" min="-180" max="180" />
+
+ <VelLimit refjoint="Joint0" max="60" />
+ <VelLimit refjoint="Joint1" max="60" />
+ <VelLimit refjoint="Joint2" max="60" />
+ <VelLimit refjoint="Joint3" max="60" /> 
+ <VelLimit refjoint="Joint4" max="60" />
+ <VelLimit refjoint="Joint5" max="60" />
+
+ <AccLimit refjoint="Joint0" max="120" />
+ <AccLimit refjoint="Joint1" max="120" />
+ <AccLimit refjoint="Joint2" max="120" />
+ <AccLimit refjoint="Joint3" max="120" /> 
+ <AccLimit refjoint="Joint4" max="120" />
+ <AccLimit refjoint="Joint5" max="120" />
+
+ <Drawable name="flangeGeo" refframe="Base">
+  <RPY> 0 90 0 </RPY> <Pos> 0 0 0 </Pos>
+  <Polytope file="Geometry/robotFlange" />
+ </Drawable>
+ <Drawable name="flangeGeo" refframe="Base">
+  <RPY> 0 90 0 </RPY> <Pos> 0 0 0 </Pos>
+  <Polytope file="Geometry/base" />
+ </Drawable>
+ <Drawable name="Joint0Geo" refframe="Joint0">
+  <RPY> 270 90 0 </RPY> <Pos> 0 0 0 </Pos>
+  <Polytope file="Geometry/joint0" />
+ </Drawable>
+
+ <!-- PUT YOUR DRAWABLES HERE ONE AT THE TIME -->
+ <Drawable name="Joint1Geo" refframe="Joint1">
+  <RPY> 270 0 90 </RPY> <Pos> 0 -0.0892 0</Pos>
+  <Polytope file="Geometry/joint1"/>
+ </Drawable>
+ 
+ <Drawable name="Joint2Geo" refframe="Joint2">
+ 	<RPY> 0 0 90 </RPY> <Pos> 0.5142 0 0 </Pos>
+ 	<Polytope file="Geometry/joint2"/>
+ </Drawable>
+ 
+ <Drawable name="Joint3Geo" refframe="Joint3">
+ 	<RPY> 0 0 90 </RPY> <Pos> 0.90663 0 0 </Pos>
+ 	<Polytope file="Geometry/joint3"/>
+ </Drawable>
+ 
+ <Drawable name="Joint4Geo" refframe="Joint4">
+ 	<RPY> 0 90 0 </RPY> <Pos> 0 -0.109 -0.90663 </Pos>
+ 	<Polytope file="Geometry/joint4"/>
+ </Drawable>
+ 
+ <Drawable name="Joint5Geo" refframe="Joint5">
+  <RPY> 90 0 90 </RPY> <Pos> 0 0.99963 -0.109 </Pos>
+  <Polytope file="Geometry/joint5"/>
+ </Drawable>
+ 
+ <CollisionSetup file="CollisionSetup.prox.xml" />
+
+ <!-- The home position must have the same length as joints you have inserted -->
+ <Q name="Home">0 0 0 0 0 0</Q>
+
+</SerialDevice>
